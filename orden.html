@@ -18,6 +18,10 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="plugins/iCheck/all.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -86,13 +90,13 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">BUSCAR</li>
-          <li >
+          <li>
             <a href="index.html">
               <i class="fa fa-desktop"></i>
               <span>Dashboard</span>
             </a>
           </li>
-          <li >
+          <li>
             <a href="mensajeros.html">
               <i class="fa fa-truck"></i>
               <span>Mensajeros</span>
@@ -110,7 +114,7 @@
             <ul class="treeview-menu">
               <li>
                 <a href="orden.html">
-               
+
                   <i class="fa fa-circle-o"></i> Orden de mensajeria</a>
               </li>
               <li>
@@ -154,463 +158,482 @@
       <section class="content">
         <div class="row">
           <div class="col-md-6">
-            <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">Orden de mensajeria</h3>
-              </div>
+            <form role="form" action="ejemplo.php" method="get">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Orden de mensajeria</h3>
+                </div>
 
-              <form role="form" action="ejemplo.php" method="get">
+
                 <div class="box-body">
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="fecha" >Fecha de solicitud:</label>
-                    <div class="col-sm-9">
-                        <input class="form-control" type="text" id="fecha" size="30" />
+                    <label class="control-label" for="fecha">Fecha de solicitud:</label>
+                    <div class="input-group date">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" class="form-control pull-right" id="datepicker">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="ejecutivo">Ejecutivo: </label>
+                    <div>
+                      <input class="form-control pull-right" type="text" id="ejecutivo" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="cliente">Cliente: </label>
+                    <div>
+                      <input class="form-control" type="text" id="cliente" size="10" />
                     </div>
                   </div>
                 </div>
+              </div>
 
-                </br>
-
-                <div>
-                  <label for="ejecutivo">Ejecutivo: </label>
-                  <input type="text" id="ejecutivo" size="30" />
+              <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Cliente</h4>
                 </div>
-                </br>
-                <div>
-                  <label for="cliente">Cliente: </label>
-                  <input type="text" id="cliente" size="30" />
+                <div class="box-body">
+                  <div class="form-group">
+                    <label class="control-label" for="calle">Calle: </label>
+                    <div>
+                      <input class="form-control" type="text" id="calle" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="colonia">Colonia: </label>
+                    <div>
+                      <input class="form-control" type="text" id="colonia" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="delegacion">Delegacion / Municipio: </label>
+                    <div>
+                      <input class="form-control" type="text" id="delegacion" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="cp">CP: </label>
+                    <div>
+                      <input class="form-control" type="text" id="cp" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="telefono">Telefono cliente: </label>
+                    <div>
+                      <input class="form-control" type="text" id="telefono" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="contacto">Nombre del contacto 1: </label>
+                    <div>
+                      <input class="form-control" type="text" id="contacto" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="contacto2">Nombre del contacto 2: </label>
+                    <div>
+                      <input class="form-control" type="text" id="contacto2" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="horario">Horario abierto: </label>
+                    <div>
+                      <input type="radio" name="hm" value="h"> SI
+                      <input type="radio" name="hm" value="m"> NO
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="entrega">Horario de entrega: </label>
+                    <input type="text" id="entrega" size="2" />
+                    <laberl>de</laberl>
+                    <input type="text" id="entrega" size="2" />
+                  </div>
+                  <div>
+                    <label for="entrega">Horario de entrega: </label>
+                    <input type="text" id="entrega" size="2" />
+                    <laberl>de</laberl>
+                    <input type="text" id="entrega" size="2" />
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="horario">Envio directo del proveedor: </label>
+                    <div>
+                      <input type="radio" name="hm" value="h"> SI
+                      <input type="radio" name="hm" value="m"> NO
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="horario">Se requiere GUIA para envio: </label>
+                    <div>
+                      <input type="radio" name="hm" value="h"> SI
+                      <input type="radio" name="hm" value="m"> NO
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="horario">Solo pago a porveedor: </label>
+                    <div>
+                      <input type="radio" name="hm" value="h"> SI
+                      <input type="radio" name="hm" value="m"> NO
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="ncontacto">Nombre del contacto: </label>
+                    <div>
+                      <input class="form-control" type="text" id="ncontacto" size="10" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="#factura"># de Factura: </label>
+                    <div>
+                      <input class="form-control" type="text" id="#factura" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="pago">Forma de pago: </label>
+                    <div>
+                      <input class="form-control" type="text" id="pago" size="30" />
+                    </div>
+                  </div>
                 </div>
-                </br>
+              </div>
 
-                <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
-
-                  <tr>
-
-                    <th>
-                      <th> </th>DIRECCION DEL CLIENTE (DESTINO)</th>
-
-                </table>
-                </br>
-                <div>
-                  <label for="calle">Calle: </label>
-                  <input type="text" id="calle" size="30" />
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Proveedor</h4>
                 </div>
+                <div class="box-body">
+                  <div class="form-group">
+                    <label class="control-label" for="proveedor">Nombre del proveedor: </label>
+                    <div >
+                      <input class="form-control" type="text" id="proveedor" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="calle">Calle: </label>
+                    <div>
+                      <input class="form-control" type="text" id="calle" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="colonia">Colonia: </label>
+                    <div>
+                      <input class="form-control" type="text" id="colonia" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="municipio">Delegacion / Municipio: </label>
+                    <div>
+                      <input class="form-control" type="text" id="municipio" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class=" control-label" for="cp2">CP: </label>
+                    <div>
+                      <input class="form-control" type="text" id="cp2" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class=" control-label" for="nombre3">Nombre del contacto:: </label>
+                    <div>
+                      <input class="form-control" type="text" id="nombre3" size="30" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="telefono2">Telefono: </label>
+                    <div>
+                      <input class="form-control" type="text" id="telefono2" size="30" />
+                    </div>
+                  </div>
 
-                </br>
-                <div>
-                  <label for="colonia">Colonia: </label>
-                  <input type="text" id="colonia" size="30" />
                 </div>
+              </div>
 
-
+              <div class="box box-info">
+                  <div class="box-header with-border">
+                      <h4 class="box-title">Observaciones</h4>
+                    </div>
+      
+      
+                    <div class="form-group">
+                      <p>
+                        <textarea name="comentario" rows="5" cols="80"> </textarea>
+                      </p>
+      
+                    </div>
+                    <center><input type="submit" value="Finalizar"></center>
+                    
+                  </br>
                 </br>
-                <div>
-                  <label for="delegacion">Delegacion / Municipio: </label>
-                  <input type="text" id="delegacion" size="30" />
+      
                 </div>
+                
 
-                </br>
-                <div>
-                  <label for="cp">CP: </label>
-                  <input type="text" id="cp" size="30" />
-                </div>
+              </div>
 
-                </br>
-                <div>
-                  <label for="telefono">Telefono cliente: </label>
-                  <input type="text" id="telefono" size="30" />
-                </div>
+             
+          </form>
+        </div>
+    </div>
 
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
-                </br>
-                <div>
-                  <label for="contacto1">Nombre del contacto 1: </label>
-                  <input type="text" id="contacto1" size="30" />
-                </div>
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
 
-                </br>
-                <div>
-                  <label for="contacto2">Nombre del contacto 2: </label>
-                  <input type="text" id="contacto2" size="30" />
-                </div>
+    </div>
+    <strong>Servcomp &copy; 1998-2018
+      <a </footer>
 
-                </br>
-                <div>
-                  <label for="horario">Horario abierto: </label>
-                  <input type="radio" name="hm" value="h"> SI
-                  <input type="radio" name="hm" value="m"> NO
-                </div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+          <!-- Create the tabs -->
+          <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li>
+              <a href="#control-sidebar-home-tab" data-toggle="tab">
+                <i class="fa fa-home"></i>
+              </a>
+            </li>
 
-                </br>
-                <div>
-                  <label for="entrega">Horario de entrega: </label>
-                  <input type="text" id="entrega" size="2" />
-                  <laberl>de</laberl>
-                  <input type="text" id="entrega" size="2" />
-                </div>
+            <li>
+              <a href="#control-sidebar-settings-tab" data-toggle="tab">
+                <i class="fa fa-gears"></i>
+              </a>
+            </li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane" id="control-sidebar-home-tab">
+              <h3 class="control-sidebar-heading">Recent Activity</h3>
+              <ul class="control-sidebar-menu">
+                <li>
+                  <a href="javascript:void(0)">
+                    <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-                </br>
-                <div>
-                  <label for="entrega">Horario de entrega: </label>
-                  <input type="text" id="entrega" size="2" />
-                  <laberl>de</laberl>
-                  <input type="text" id="entrega" size="2" />
-                </div>
+                    <div class="menu-info">
+                      <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
 
-                </br>
-                <div>
-                  <label for="horario">Envio directo proveedor: </label>
-                  <input type="radio" name="hm" value="h"> SI
-                  <input type="radio" name="hm" value="m"> NO
-                </div>
+                      <p>Will be 23 on April 24th</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <i class="menu-icon fa fa-user bg-yellow"></i>
 
-                </br>
-                <div>
-                  <label for="horario">Se requiere GUIA para envio: </label>
-                  <input type="radio" name="hm" value="h"> SI
-                  <input type="radio" name="hm" value="m"> NO
-                </div>
+                    <div class="menu-info">
+                      <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
 
+                      <p>New phone +1(800)555-1234</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
 
-                </br>
-                <div>
-                  <label for="horario">Solo pago a proveedor: </label>
-                  <input type="radio" name="hm" value="h"> SI
-                  <input type="radio" name="hm" value="m"> NO
-                </div>
+                    <div class="menu-info">
+                      <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
 
-                </br>
-                <div>
-                  <label for="#pedido"># de pedido en caso de que la factura se emita en sucursal: </label>
-                  <input type="text" id="#pedido" size="30" />
-                </div>
+                      <p>nora@example.com</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <i class="menu-icon fa fa-file-code-o bg-green"></i>
 
-                </br>
-                <div>
-                  <label for="#factura"># de Factura: </label>
-                  <input type="text" id="#factura" size="30" />
-                </div>
+                    <div class="menu-info">
+                      <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
 
-                </br>
-                <div>
-                  <label for="pago">Forma de pago: </label>
-                  <input type="text" id="pago" size="30" />
-                </div>
-                </br>
+                      <p>Execution time 5 seconds</p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <!-- /.control-sidebar-menu -->
 
-                <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+              <h3 class="control-sidebar-heading">Tasks Progress</h3>
+              <ul class="control-sidebar-menu">
+                <li>
+                  <a href="javascript:void(0)">
+                    <h4 class="control-sidebar-subheading">
+                      Custom Template Design
+                      <span class="label label-danger pull-right">70%</span>
+                    </h4>
 
-                  <tr>
+                    <div class="progress progress-xxs">
+                      <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <h4 class="control-sidebar-subheading">
+                      Update Resume
+                      <span class="label label-success pull-right">95%</span>
+                    </h4>
 
-                    <th>
-                      <th> </th>DIRECCION DEL PROVEEDOR (ORIGEN)</th>
+                    <div class="progress progress-xxs">
+                      <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <h4 class="control-sidebar-subheading">
+                      Laravel Integration
+                      <span class="label label-warning pull-right">50%</span>
+                    </h4>
 
-                </table>
+                    <div class="progress progress-xxs">
+                      <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <h4 class="control-sidebar-subheading">
+                      Back End Framework
+                      <span class="label label-primary pull-right">68%</span>
+                    </h4>
 
-                </br>
-                <div>
-                  <label for="proveedor">Nombre del proveedor: </label>
-                  <input type="text" id="proveedor" size="30" />
-                </div>
+                    <div class="progress progress-xxs">
+                      <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <!-- /.control-sidebar-menu -->
 
-                </br>
-                <div>
-                  <label for="calle2">Calle: </label>
-                  <input type="text" id="Calle2" size="30" />
-                </div>
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+              <form method="post">
+                <h3 class="control-sidebar-heading">General Settings</h3>
 
-                </br>
-                <div>
-                  <label for="colonia2">Colonia: </label>
-                  <input type="text" id="colonia2" size="30" />
-                </div>
+                <div class="form-group">
+                  <label class="control-sidebar-subheading">
+                    Report panel usage
+                    <input type="checkbox" class="pull-right" checked>
+                  </label>
 
-                </br>
-                <div>
-                  <label for="delegacion2">Delegacion / Municipio: </label>
-                  <input type="text" id="delegacion2" size="30" />
-                </div>
-
-                </br>
-                <div>
-                  <label for="cp2">CP: </label>
-                  <input type="text" id="cp2" size="30" />
-                </div>
-
-                </br>
-                <div>
-                  <label for="nombre3">Nombre del contacto: </label>
-                  <input type="text" id="nombre3" size="30" />
-                </div>
-
-                </br>
-                <div>
-                  <label for="telefono2">Telefono: </label>
-                  <input type="text" id="telefono2" size="30" />
-                </div>
-
-
-                </br>
-
-                <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
-
-                  <tr>
-
-                    <th>
-                      <th> </th>OBSERVACIONES</th>
-
-                </table>
-
-                </br>
-                <div>
                   <p>
-                    <textarea name="comentario" rows="5" cols="80">Escribe aquí tu comentario: </textarea>
+                    Some information about this general settings option
                   </p>
-
                 </div>
+                <!-- /.form-group -->
 
+                <div class="form-group">
+                  <label class="control-sidebar-subheading">
+                    Allow mail redirect
+                    <input type="checkbox" class="pull-right" checked>
+                  </label>
 
+                  <p>
+                    Other sets of options are available
+                  </p>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="control-sidebar-subheading">
+                    Expose author name in posts
+                    <input type="checkbox" class="pull-right" checked>
+                  </label>
+
+                  <p>
+                    Allow the user to show his name in blog posts
+                  </p>
+                </div>
+                <!-- /.form-group -->
+
+                <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                <div class="form-group">
+                  <label class="control-sidebar-subheading">
+                    Show me as online
+                    <input type="checkbox" class="pull-right" checked>
+                  </label>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="control-sidebar-subheading">
+                    Turn off notifications
+                    <input type="checkbox" class="pull-right">
+                  </label>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="control-sidebar-subheading">
+                    Delete chat history
+                    <a href="javascript:void(0)" class="text-red pull-right">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  </label>
+                </div>
+                <!-- /.form-group -->
               </form>
             </div>
+            <!-- /.tab-pane -->
           </div>
-        </div>
-
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-
-      </div>
-      <strong>Servcomp &copy; 1998-2018
-        <a </footer>
-
-          <!-- Control Sidebar -->
-          <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-              <li>
-                <a href="#control-sidebar-home-tab" data-toggle="tab">
-                  <i class="fa fa-home"></i>
-                </a>
-              </li>
-
-              <li>
-                <a href="#control-sidebar-settings-tab" data-toggle="tab">
-                  <i class="fa fa-gears"></i>
-                </a>
-              </li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <!-- Home tab content -->
-              <div class="tab-pane" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                  <li>
-                    <a href="javascript:void(0)">
-                      <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                      <div class="menu-info">
-                        <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                        <p>Will be 23 on April 24th</p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">
-                      <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                      <div class="menu-info">
-                        <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                        <p>New phone +1(800)555-1234</p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">
-                      <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                      <div class="menu-info">
-                        <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                        <p>nora@example.com</p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">
-                      <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                      <div class="menu-info">
-                        <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                        <p>Execution time 5 seconds</p>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                  <li>
-                    <a href="javascript:void(0)">
-                      <h4 class="control-sidebar-subheading">
-                        Custom Template Design
-                        <span class="label label-danger pull-right">70%</span>
-                      </h4>
-
-                      <div class="progress progress-xxs">
-                        <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">
-                      <h4 class="control-sidebar-subheading">
-                        Update Resume
-                        <span class="label label-success pull-right">95%</span>
-                      </h4>
-
-                      <div class="progress progress-xxs">
-                        <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">
-                      <h4 class="control-sidebar-subheading">
-                        Laravel Integration
-                        <span class="label label-warning pull-right">50%</span>
-                      </h4>
-
-                      <div class="progress progress-xxs">
-                        <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">
-                      <h4 class="control-sidebar-subheading">
-                        Back End Framework
-                        <span class="label label-primary pull-right">68%</span>
-                      </h4>
-
-                      <div class="progress progress-xxs">
-                        <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-              </div>
-              <!-- /.tab-pane -->
-              <!-- Stats tab content -->
-              <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-              <!-- /.tab-pane -->
-              <!-- Settings tab content -->
-              <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                  <h3 class="control-sidebar-heading">General Settings</h3>
-
-                  <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                      Report panel usage
-                      <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                      Some information about this general settings option
-                    </p>
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                      Allow mail redirect
-                      <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                      Other sets of options are available
-                    </p>
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                      Expose author name in posts
-                      <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                      Allow the user to show his name in blog posts
-                    </p>
-                  </div>
-                  <!-- /.form-group -->
-
-                  <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                  <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                      Show me as online
-                      <input type="checkbox" class="pull-right" checked>
-                    </label>
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                      Turn off notifications
-                      <input type="checkbox" class="pull-right">
-                    </label>
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                      Delete chat history
-                      <a href="javascript:void(0)" class="text-red pull-right">
-                        <i class="fa fa-trash-o"></i>
-                      </a>
-                    </label>
-                  </div>
-                  <!-- /.form-group -->
-                </form>
-              </div>
-              <!-- /.tab-pane -->
-            </div>
-          </aside>
-          <!-- /.control-sidebar -->
-          <!-- Add the sidebar's background. This div must be placed
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
-          <div class="control-sidebar-bg"></div>
-  </div>
-  <!-- ./wrapper -->
+        <div class="control-sidebar-bg"></div>
+        </div>
+        <!-- ./wrapper -->
 
-  <!-- jQuery 3 -->
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- SlimScroll -->
-  <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-  <!-- FastClick -->
-  <script src="bower_components/fastclick/lib/fastclick.js"></script>
-  <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.sidebar-menu').tree()
-    })
-  </script>
+        <!-- jQuery 3 -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower_components/fastclick/lib/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- Select2 -->
+        <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+        <!-- DatePicker-->
+        <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+        <!-- iCheck 1.0.1 -->
+        <script src="plugins/iCheck/icheck.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            $('.sidebar-menu').tree()
+          })
+        </script>
+        <script>
+          $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //iCheck for checkbox and radio inputs
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+              checkboxClass: 'icheckbox_minimal-blue',
+              radioClass: 'iradio_minimal-blue'
+            })
+            //Date picker
+            $('#datepicker').datepicker({
+              autoclose: true
+            })
+          })
+        </script>
 </body>
 
 </html>
