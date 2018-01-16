@@ -18,7 +18,9 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-
+  <!-- DataTables -->
+  <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -160,103 +162,24 @@
               </div>
         
         <div>
-            <center><table BORDER=1 WIDTH=300 class="egt">
+                  <?php
 
-                <tr>
-              
-                  <th>Num empleado</th>
-              
-                  <th>Nombre</th>
-              
-                  <th>Apellido P</th>
+                  include("conexion.php");
+                  $Con = new conexion();
+                  $Con->recuperarDatos();
 
-                  <th>Apellido M</th>
-
-                  <th>Celular</th>
-                  
-                  <th>Activo</th>
-              
-                </tr>
-              
-                <tr>
-              
-                  <td WIDTH=100>001</td>
-              
-                  <td WIDTH=100>Juan </td>
-              
-                  <td WIDTH=100>Pulido</td>
-
-                  <td WIDTH=100>Ortega</td>
-
-                  <td WIDTH=100>5529576699</td>
-
-                  <td WIDTH=100>✓</td>
-              
-                </tr>
-              
-                <tr>
-              
-                    <td >002</td>
-              
-                    <td>Jesus </td>
-                
-                    <td>aldair</td>
-  
-                    <td>Ibarra</td>
-  
-                    <td>5529576699</td>
-  
-                    <td>✓</td>
-              
-                </tr>
-              
-                <tr>
-              
-                    <td>003</td>
-              
-                    <td>Fernando </td>
-                
-                    <td>Navarro</td>
-  
-                    <td>Ibarra</td>
-  
-                    <td>5529576699</td>
-  
-                    <td>✓</td>
-              
-                </tr>
-              
-              </table></center>
-
-            </br>
-          </br>
-
+                  ?>
         </div>
-
       </section>
-
-        
-
-
       <!-- /.content -->
-     
-
     </div>
-
-    
-
     <!-- /.content-wrapper -->
-
-
-
-    
-
     <footer class="main-footer">
       <div class="pull-right hidden-xs">
 
       </div>
       <strong>Servcomp &copy; 1998-2018
-        <a </footer>
+        </footer>
 
           <!-- Control Sidebar -->
           <aside class="control-sidebar control-sidebar-dark">
@@ -477,11 +400,27 @@
   <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
+  <!-- DataTables -->
+  <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
   <script>
     $(document).ready(function () {
       $('.sidebar-menu').tree()
     })
   </script>
+  <script>
+  $(function () {
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 </body>
 
 </html>
