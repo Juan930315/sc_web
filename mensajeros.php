@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed">
   <!-- Site wrapper -->
   <div class="wrapper">
 
@@ -84,7 +84,7 @@
     <!-- Left side column. contains the sidebar -->
     <aside class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar">
+      <section class="sidebar" style="overflow: hidden; width: auto; height: auto;">
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">BUSCAR</li>
@@ -95,7 +95,7 @@
             </a>
           </li>
           <li >
-            <a href="mensajeros.html">
+            <a href="mensajeros.php">
               <i class="fa fa-truck"></i>
               <span>Mensajeros</span>
             </a>
@@ -110,6 +110,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
+
+            
               <li>
                 <a href="orden.html">
                
@@ -180,6 +182,9 @@
       </div>
       <strong>Servcomp &copy; 1998-2018
         </footer>
+              </section>
+          <!-- /.content -->
+        
 
           <!-- Control Sidebar -->
           <aside class="control-sidebar control-sidebar-dark">
