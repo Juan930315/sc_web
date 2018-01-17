@@ -118,8 +118,8 @@
                   <i class="fa fa-circle-o"></i> Orden de mensajeria</a>
               </li>
               <li>
-                <a href="../forms/advanced.html">
-                  <i class="fa fa-circle-o"></i>Experiencia Intermedio</a>
+                <a href="orden_salida.html">
+                  <i class="fa fa-circle-o"></i>Orden salida- Productos varios </a>
               </li>
               <li>
                 <a href="../forms/editors.html">
