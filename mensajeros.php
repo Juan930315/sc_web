@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
+	print "<script>alert(\"Acceso invalido!\");window.location='login.html';</script>";
+}
+
+?>
+
 <html>
 
 <head>
@@ -122,8 +129,8 @@
                   <i class="fa fa-circle-o"></i>Orden salida- Productos varios </a>
               </li>
               <li>
-                <a href="../forms/editors.html">
-                  <i class="fa fa-circle-o"></i> Experiencia basico</a>
+                <a href="gastos.php">
+                  <i class="fa fa-circle-o"></i> Gastos de mensajero</a>
               </li>
             </ul>
           </li>
@@ -167,11 +174,50 @@
                   <?php
 
                   include("conexion.php");
-                  $Con = new conexion();
-                  $Con->recuperarDatos();
+                  $query = "SELECT * FROM empleados";
+        $resultado = mysql_query($query);
+
+        
+                    
+            echo '<table id="example2" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Ap_P</th>
+                  <th>Ap_M</th>
+                  <th>Celular</th>
+                  <th>Activo</th>
+                </tr>
+                </thead>
+                <tbody>';
+                while ($fila = mysql_fetch_array($resultado)) {
+                echo "<tr>
+                  <td>$fila[id]</td>
+                  <td>$fila[nombre]</td>
+                  <td>$fila[apellido_p]</td>
+                  <td>$fila[apellido_m]</td>
+                  <td>$fila[celular]</td>
+                  <td>$fila[activo]</td>
+                </tr>";
+        }
+        echo "</tbody>
+        </table>";
+
 
                   ?>
         </div>
+
+                        <FORM name=form2>
+                        <center><input onload="window.print();" type="submit" value="guardar"></center>
+
+                    </FORM>
+                  </br>
+                    <FORM  NAME=form1>
+                        <center><INPUT TYPE='button' NAME='myButton' VALUE='Imrpimir' 
+                        onclick="window.print();"></center>
+                
+                      </FORM>
       </section>
       <!-- /.content -->
     </div>

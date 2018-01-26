@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body  class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed">
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed">
   <!-- Site wrapper -->
   <div class="wrapper">
 
@@ -133,6 +133,7 @@
     </aside>
 
     <!-- =============================================== -->
+    
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -161,7 +162,7 @@
             <form role="form" action="ejemplo.php" method="get">
               <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Orden de mensajeria</h3>
+                  <h3 class="box-title">Gastos de Mensajeria</h3>
                 </div>
 
 
@@ -176,192 +177,101 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label" for="ejecutivo">Ejecutivo: </label>
+                    <label class="control-label" for="recibido">Recibi de: </label>
                     <div>
-                      <input class="form-control pull-right" type="text" id="ejecutivo" size="30" />
+                      <input class="form-control pull-right" type="text" id="recibido" size="30" />
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label" for="cliente">Cliente: </label>
+                    <label class="control-label" for="cantidad">Cantidad: </label>
                     <div>
-                      <input class="form-control" type="text" id="cliente" size="10" />
+                      <input class="form-control" type="text" id="cantidad" size="10" />
                     </div>
                   </div>
-                </div>
-              </div>
+                  <div class="form-group">
+                    <label class="control-label" for="nombre">Nombre: </label>
+                    <div>
+                      <input class="form-control pull-right" type="text" id="nombre" size="30" />
+                    </div>
+                  </div>
+                </br>
+              </br>
+              
+              
 
-              <div class="box box-danger">
+                  <!-- Main content -->
+      <section class="content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h4 class="box-title">Cliente</h4>
+                  <h3 class="box-title">Gastos</h3>
                 </div>
-                <div class="box-body">
-                  <div class="form-group">
-                    <label class="control-label" for="calle">Calle: </label>
-                    <div>
-                      <input class="form-control" type="text" id="calle" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="colonia">Colonia: </label>
-                    <div>
-                      <input class="form-control" type="text" id="colonia" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="delegacion">Delegacion / Municipio: </label>
-                    <div>
-                      <input class="form-control" type="text" id="delegacion" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="cp">CP: </label>
-                    <div>
-                      <input class="form-control" type="text" id="cp" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="telefono">Telefono cliente: </label>
-                    <div>
-                      <input class="form-control" type="text" id="telefono" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="contacto">Nombre del contacto 1: </label>
-                    <div>
-                      <input class="form-control" type="text" id="contacto" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="contacto2">Nombre del contacto 2: </label>
-                    <div>
-                      <input class="form-control" type="text" id="contacto2" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="horario">Horario abierto: </label>
-                    <div>
-                      <input type="radio" name="hm" value="h"> SI
-                      <input type="radio" name="hm" value="m"> NO
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="entrega">Horario de entrega: </label>
-                    <input type="text" id="entrega" size="2" />
-                    <laberl>de</laberl>
-                    <input type="text" id="entrega" size="2" />
-                  </div>
+          
                   <div>
-                    <label for="entrega">Horario de entrega: </label>
-                    <input type="text" id="entrega" size="2" />
-                    <laberl>de</laberl>
-                    <input type="text" id="entrega" size="2" />
-                  </div>
+                    <?php
+  
+                    include("conexion.php");
+                    $query = "SELECT * FROM gastos";
+                    $resultado = mysql_query($query);
+  
+          
+                      
+              echo '<table id="example3" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Factura</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Cantidad</th>
+                 
+                  </tr>
+                  </thead>
+                  <tbody>';
+                  while ($fila = mysql_fetch_array($resultado)) {
+                  echo "<tr>
+                    <td>$fila[created_at]</td>
+                    <td>$fila[Factura]</td>
+                    <td>$fila[Origen]</td>
+                    <td>$fila[Destino]</td>
+                    <td>$fila[Cantidad]</td>
+                   
+                  </tr>";
+          }
+          echo "</tbody>
+          </table>";
+  
+  
+                    ?>
+          </div>
+        </section>
+
+        <div class="box-body">
+                 
                   <div class="form-group">
-                    <label class="control-label" for="horario">Envio directo del proveedor: </label>
+                    <label class="control-label" for="ffinanzas">Firma de Finanzas: </label>
                     <div>
-                      <input type="radio" name="hm" value="h"> SI
-                      <input type="radio" name="hm" value="m"> NO
+                      <input class="form-control pull-right" type="text" id="ffinanzas" size="30" />
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label" for="horario">Se requiere GUIA para envio: </label>
+                    <label class="control-label" for="fsupervisor">Firma de Supervisor: </label>
                     <div>
-                      <input type="radio" name="hm" value="h"> SI
-                      <input type="radio" name="hm" value="m"> NO
+                      <input class="form-control" type="text" id="fsupervisor" size="10" />
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label" for="horario">Solo pago a porveedor: </label>
+                    <label class="control-label" for="fmensajero">Firma de Mensajero: </label>
                     <div>
-                      <input type="radio" name="hm" value="h"> SI
-                      <input type="radio" name="hm" value="m"> NO
+                      <input class="form-control pull-right" type="text" id="fmensajero" size="30" />
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="control-label" for="ncontacto">Nombre del contacto: </label>
-                    <div>
-                      <input class="form-control" type="text" id="ncontacto" size="10" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="#factura"># de Factura: </label>
-                    <div>
-                      <input class="form-control" type="text" id="#factura" size="30" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="pago">Forma de pago: </label>
-                    <div>
-                      <input class="form-control" type="text" id="pago" size="30" />
-                    </div>
-                  </div>
+
+        
                 </div>
               </div>
-
-              <div class="box box-success">
-                <div class="box-header with-border">
-                  <h4 class="box-title">Proveedor</h4>
-                </div>
-                <div class="box-body">
-                  <div class="form-group">
-                    <label class="control-label" for="proveedor">Nombre del proveedor: </label>
-                    <div >
-                      <input class="form-control" type="text" id="proveedor" size="30" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="calle">Calle: </label>
-                    <div>
-                      <input class="form-control" type="text" id="calle" size="30" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="colonia">Colonia: </label>
-                    <div>
-                      <input class="form-control" type="text" id="colonia" size="30" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="municipio">Delegacion / Municipio: </label>
-                    <div>
-                      <input class="form-control" type="text" id="municipio" size="30" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class=" control-label" for="cp2">CP: </label>
-                    <div>
-                      <input class="form-control" type="text" id="cp2" size="30" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class=" control-label" for="nombre3">Nombre del contacto:: </label>
-                    <div>
-                      <input class="form-control" type="text" id="nombre3" size="30" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="telefono2">Telefono: </label>
-                    <div>
-                      <input class="form-control" type="text" id="telefono2" size="30" />
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="box box-info">
-                  <div class="box-header with-border">
-                      <h4 class="box-title">Observaciones</h4>
-                    </div>
-      
-      
-                    <div class="form-group">
-                      <p>
-                        <textarea name="comentario" rows="5" cols="110"> </textarea>
-                      </p>
-      
-                    </div>
-                    <FORM name=form2>
+              <FORM name=form2>
                         <center><input onload="window.print();" type="submit" value="guardar"></center>
 
                     </FORM>
@@ -370,13 +280,19 @@
                         <center><INPUT TYPE='button' NAME='myButton' VALUE='Imrpimir' 
                         onclick="window.print();"></center>
                 
-                      </FORM>
+                    </FORM>
 
-                      
               
-                        </div>
+
+      
+                    
+                 
+                </div>
+                
+
               </div>
 
+             
           </form>
         </div>
 

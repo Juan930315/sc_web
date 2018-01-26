@@ -110,15 +110,15 @@
                         <ul class="treeview-menu">
                             <li>
                                 <a href="orden.html">
-                                    <i class="fa fa-circle-o"></i> Experiencia avanzado</a>
+                                    <i class="fa fa-circle-o"></i> Orden de mensajeria</a>
                             </li>
                             <li>
                                 <a href="orden_salida.html">
                                     <i class="fa fa-circle-o"></i>Orden/Salida - Productos/Varios</a>
                             </li>
                             <li>
-                                <a href="../forms/editors.html">
-                                    <i class="fa fa-circle-o"></i> Experiencia basico</a>
+                                <a href="gastos.php">
+                                    <i class="fa fa-circle-o"></i> Gastos de mensajero</a>
                             </li>
                         </ul>
                     </li>
@@ -156,7 +156,7 @@
                         <form role="form" action="ejemplo.php" method="get">
                             <div class="box box-primary">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">Orden </h3>
+                                    <h3 class="box-title">Orden Urgencia </h3>
                                 </div>
                                 <div class="box-body">
                                     <div class="form-group">
@@ -165,72 +165,79 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control pull-right" id="datepicker">
+                                            <input type="text" class="form-control pull-right" id="fecha">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="ejecutivo">Factura: </label>
+                                        <label class="control-label" for="factura">Factura: </label>
                                         <div>
-                                            <input class="form-control pull-right" type="text" id="ejecutivo" size="30" />
+                                            <input class="form-control pull-right" type="text" id="factura" size="30" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">Producto: </label>
+                                        <label class="control-label" for="producto">Producto: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="producto" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">1 ER Salida de producto: </label>
+                                        <label class="control-label" for="1salida">1 ER Salida de producto: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="1salida" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">2 DA Salida de producto: </label>
+                                        <label class="control-label" for="2salida">2 DA Salida de producto: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="2salida" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">3 RA Salida de producto: </label>
+                                        <label class="control-label" for="3salida">3 RA Salida de producto: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="3salida" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">4 TA Salida de producto: </label>
+                                        <label class="control-label" for="4salida">4 TA Salida de producto: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="4salida" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">5 TA Salida de producto: </label>
+                                        <label class="control-label" for="5salida">5 TA Salida de producto: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="5salida" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">Restante: </label>
+                                        <label class="control-label" for="restante">Restante: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="restante" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">Mensajero: </label>
+                                        <label class="control-label" for="mensajero">Mensajero: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="mensajero" size="10" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="cliente">Vendedor: </label>
+                                        <label class="control-label" for="vendedor">Vendedor: </label>
                                         <div>
-                                            <input class="form-control" type="text" id="cliente" size="10" />
+                                            <input class="form-control" type="text" id="vendedor" size="10" />
                                         </div>
                                     </div>
-                                    <center>
-                                        <input type="submit" value="Finalizar">
-                                    </center>
+                                    <FORM name=form2>
+                                            <center><input onload="window.print();" type="submit" value="guardar"></center>
+                    
+                                        </FORM>
+                                      </br>
+                                        <FORM  NAME=form1>
+                                            <center><INPUT TYPE='button' NAME='myButton' VALUE='Imrpimir' 
+                                            onclick="window.print();"></center>
+                                    
+                                          </FORM>
                                 </div>
                             </div>
             </section>
