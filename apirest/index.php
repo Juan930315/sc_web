@@ -18,10 +18,35 @@ $app->get(
     	//consultas a la base de datos 
     	// peticiones a otro rest 
     	// etcetera
-    	$datos = array(
-    					"nombre" => "pepe", 
-    					"edad" => "23"
-    					);
+    	require "./conexion.php";
+		$query = "SELECT * FROM empleados";
+        $resultado = mysql_query($query);
+
+		while($row=mysql_fetch_assoc($resultado)){
+  
+		  $userData['empleados'][] = $row;
+		  
+}
+
+        
+		  print_r(json_encode($userData));
+    }
+);
+
+$app->get(
+    '/mensajero/:id',function($id) use ($app){
+		require "./conexion.php";
+		$query = "SELECT * FROM `empleados` WHERE id = $id";
+        $resultado = mysqli_query($con, $query);
+
+		while($row=mysqli_fetch_assoc($resultado)){
+			$userData = $row;
+		}
+    	//almaceno el ID
+    	//conexion con base de datos
+    	//el proceso
+    	// retorno un JSON
+		echo json_encode($userData);
 
 		//json 
 		
