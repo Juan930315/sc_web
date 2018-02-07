@@ -76,47 +76,6 @@ isset($_POST['telefono2']) && !empty($_POST['telefono2']))
 }
 
 
-// <!-- ORDEN DE MENSAJERIA -->
-
-// <!-- -------------------------------------------------------------- -->
-
-// <!-- ORDEN DE URGENCIA -->
-
-
-
-if (isset($_POST['fech']) && !empty($_POST['fech']) && 
-isset($_POST['factura']) && !empty($_POST['factura']) &&
-isset($_POST['producto']) && !empty($_POST['producto']) &&
-isset($_POST['salida1']) && !empty($_POST['salida1']) &&
-isset($_POST['salida2']) && !empty($_POST['salida2']) &&
-isset($_POST['salida3']) && !empty($_POST['salida3']) &&
-isset($_POST['salida4']) && !empty($_POST['salida4'])&&
-isset($_POST['salida5']) && !empty($_POST['salida5']) &&
-isset($_POST['restante']) && !empty($_POST['restante']) &&
-isset($_POST['mensajero']) && !empty($_POST['mensajero']) &&
-isset($_POST['vendedor']) && !empty($_POST['vendedor']))
-{
-    mysql_query("INSERT INTO urgencia (fech, factura, producto, salida1,
-    salida2, salida3, salida4, salida5, restante, mensajero, vendedor) 
-   VALUES ('$_POST[fech]','$_POST[factura]','$_POST[producto]',
-   '$_POST[salida1]','$_POST[salida2]','$_POST[salida3]', '$_POST[salida4]',
-   '$_POST[salida5]', '$_POST[restante]', '$_POST[mensajero]', '$_POST[vendedor]')");
-
-	
-	echo "</br> urgencia: Datos insertados con exito";
-	
-}else{
-	echo "</br> urgencia: problemas a insertar datos / o no ha ingresado nada ";
-}
-
-
-
-
-
-
-// <!-- ORDEN DE URGENCIA -->
-
-
 
 
 ?>

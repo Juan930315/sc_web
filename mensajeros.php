@@ -175,7 +175,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
                   include("conexion.php");
                   $query = "SELECT * FROM empleados";
-        $resultado = mysql_query($query);
+                   $resultado = mysqli_query($con, $query);
 
         
                     
@@ -191,7 +191,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
                 </tr>
                 </thead>
                 <tbody>';
-                while ($fila = mysql_fetch_array($resultado)) {
+                while ($fila = mysqli_fetch_array($resultado)) {
                 echo "<tr>
                   <td>$fila[id]</td>
                   <td>$fila[nombre]</td>

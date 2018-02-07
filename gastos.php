@@ -213,7 +213,7 @@
   
                     include("conexion.php");
                     $query = "SELECT * FROM gastos";
-                    $resultado = mysql_query($query);
+                    $resultado = mysqli_query($con,$query);
   
           
                       
@@ -229,7 +229,7 @@
                   </tr>
                   </thead>
                   <tbody>';
-                  while ($fila = mysql_fetch_array($resultado)) {
+                  while ($fila = mysqli_fetch_array($resultado)) {
                   echo "<tr>
                     <td>$fila[created_at]</td>
                     <td>$fila[Factura]</td>

@@ -7,8 +7,8 @@ if(!empty($_POST)){
 			
 			$user_id=null;
 			$sql1= "select * from users where username=\"$_POST[username]\" and password=\"$_POST[password]\" ";
-			$result=mysql_query($sql1);
-			while ($r=mysql_fetch_array($result)) {
+			$result=mysqli_query($con,$sql1);
+			while ($r=mysqli_fetch_array($result)) {
 				$user_id=$r["id"];
 				break;
 			}
