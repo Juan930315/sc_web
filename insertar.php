@@ -9,7 +9,7 @@ if (isset($_POST['created_at']) && !empty($_POST['created_at']) &&
 isset($_POST['ejecutivo']) && !empty($_POST['ejecutivo']) &&
 isset($_POST['cliente']) && !empty($_POST['cliente']))
 {
-    mysql_query("INSERT INTO orden (created_at,ejecutivo,cliente) 
+    mysqli_query($con,"INSERT INTO orden (created_at,ejecutivo,cliente) 
    VALUES ('$_POST[created_at]','$_POST[ejecutivo]','$_POST[cliente]')");
 
 	
@@ -37,7 +37,7 @@ isset($_POST['nombrecont']) && !empty($_POST['nombrecont']) &&
 isset($_POST['numfactura']) && !empty($_POST['numfactura']) &&
 isset($_POST['formapago']) && !empty($_POST['formapago']))
 {
-    mysql_query("INSERT INTO cliente (calle, colonia, delegacion,
+    mysqli_query($con,"INSERT INTO cliente (calle, colonia, delegacion,
     cp, telefonocl, nomcontacto1, nomcontacto2, horarioab, horarioen, de, enviodi,
     guiaen, pagopro, nombrecont, numfactura, formapago) 
    VALUES ('$_POST[calle]','$_POST[colonia]','$_POST[delegacion]',
@@ -63,7 +63,7 @@ isset($_POST['cp2']) && !empty($_POST['cp2']) &&
 isset($_POST['nombre3']) && !empty($_POST['nombre3']) &&
 isset($_POST['telefono2']) && !empty($_POST['telefono2']))
 {
-    mysql_query("INSERT INTO proveedor (proveedor, calle, colonia, municipio,
+    mysqli_query($con,"INSERT INTO proveedor (proveedor, calle, colonia, municipio,
      cp2, nombre3, telefono2) 
    VALUES ('$_POST[proveedor]','$_POST[calle]','$_POST[colonia]',
    '$_POST[municipio]','$_POST[cp2]','$_POST[nombre3]', '$_POST[telefono2]')");
@@ -74,6 +74,7 @@ isset($_POST['telefono2']) && !empty($_POST['telefono2']))
 }else{
 	echo "</br> proveedor: problemas a insertar datos / o no ha ingresado nada ";
 }
+
 
 
 
